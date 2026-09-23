@@ -1,0 +1,134 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { PageShell } from "@/components/site/PageShell";
+import { AdmissionForm } from "@/components/site/AdmissionForm";
+import { AdmissionDialog } from "@/components/site/AdmissionDialog";
+import { Breadcrumb } from "@/components/site/Breadcrumb";
+
+export const Route = createFileRoute("/contact")({
+  head: () => ({
+    meta: [
+      { title: "Contact BambiBoo Preschool Koramangala" },
+      { name: "description", content: "Call, email, or visit BambiBoo Preschool at 44, 5th Main Rd, 1st Block Koramangala, Bengaluru, Karnataka 560034." },
+      { property: "og:title", content: "Contact BambiBoo" },
+      { property: "og:url", content: "/contact" },
+    ],
+    links: [{ rel: "canonical", href: "/contact" }],
+  }),
+  component: Contact,
+});
+
+function Contact() {
+  return (
+    <PageShell>
+      <section className="bg-[#FAFAFC] relative overflow-hidden py-4 sm:py-6 lg:py-8">
+        <div className="absolute -top-20 -right-16 h-72 w-72 blob bg-primary/5 pointer-events-none max-w-full" />
+        <div className="container-page relative grid gap-5 sm:gap-6 lg:grid-cols-12 lg:gap-8 xl:gap-10 items-stretch">
+          <div className="lg:col-span-5 flex flex-col justify-between h-full py-0.5">
+            <div>
+              <Breadcrumb items={[{ label: "Contact Us" }]} className="mb-1.5 text-xs font-semibold text-primary/80" />
+              <h1 className="mt-1 text-2xl sm:text-3xl md:text-4xl font-black text-balance leading-tight break-words">
+                Get in Touch
+              </h1>
+              <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed font-medium">
+                Reach out to us for admissions, campus tours, or any questions about our programmes and daycare facilities.
+              </p>
+            </div>
+
+            <div className="mt-4 sm:mt-5 flex flex-col gap-2.5 sm:gap-3 flex-1 justify-between">
+              {[
+                { icon: Phone, label: "Call", value: "+91 99006 39303", href: "tel:+919900639303" },
+                { icon: Mail, label: "Email", value: "info@bambiboo.com", href: "mailto:info@bambiboo.com" },
+                {
+                  icon: MapPin,
+                  label: "Visit",
+                  value: "44, 5th Main Rd, 1st Block Koramangala, Bengaluru, Karnataka 560034",
+                  href: "https://www.google.com/maps/place/BambiBoo+Preschool+and+Daycare/@12.929094,77.634379,16z/data=!4m6!3m5!1s0x3bae15899ada3411:0xe35948f570efc217!8m2!3d12.9290941!4d77.634379!16s%2Fg%2F11x8fll2dt?hl=en&entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D",
+                },
+                { icon: Clock, label: "Hours", value: "Mon to Sat - 8:30 AM to 6:30 PM", href: "#contact-form" },
+              ].map((c) => (
+                <a
+                  key={c.label}
+                  href={c.href}
+                  target={c.href.startsWith("http") ? "_blank" : undefined}
+                  rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="flex items-center gap-3 sm:gap-3.5 rounded-2xl border border-border/80 bg-white p-2.5 sm:px-4 sm:py-3 hover:border-primary/50 transition-all shadow-2xs hover:shadow-md group flex-1"
+                >
+                  <div className="h-9 w-9 sm:h-10 sm:w-10 rounded-xl bg-primary text-primary-foreground grid place-items-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                    <c.icon className="h-4 w-4" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="text-[11px] font-extrabold uppercase tracking-wider text-muted-foreground leading-none">{c.label}</div>
+                    <div className="mt-0.5 text-xs sm:text-sm font-bold text-foreground break-words leading-snug">{c.value}</div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="lg:col-span-7 flex justify-center lg:justify-end w-full h-full scroll-mt-24" id="contact-form">
+            <AdmissionForm variant="card" compact />
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#FFFAF1] py-8 sm:py-12 md:py-16">
+        <div className="container-page grid gap-6 sm:gap-8 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-8">
+            <div className="text-xs font-bold uppercase tracking-widest text-primary/75 mb-1">
+              Book a School Tour
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#430E6C] tracking-tight">
+              There's no better way to experience BambiBoo than to visit us.
+            </h2>
+            <p className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base text-muted-foreground max-w-2xl leading-relaxed">
+              Join us for a 30-minute guided campus walkthrough, meet our teachers, explore our learning spaces and bring your little one along-we'd love to meet them too.
+            </p>
+          </div>
+          <div className="lg:col-span-4 flex items-center justify-start lg:justify-end w-full">
+            <AdmissionDialog>
+              <button
+                className="inline-flex w-full sm:w-auto items-center justify-center rounded-full bg-primary px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 hover:brightness-105 transition cursor-pointer"
+              >
+                Book a Visit
+              </button>
+            </AdmissionDialog>
+          </div>
+        </div>
+      </section>
+
+      {/* Map / Directions */}
+      <section className="bg-[#FAFAFC] py-8 sm:py-12 md:py-16">
+        <div className="container-page">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 sm:gap-4 mb-5 sm:mb-6">
+            <div>
+              <div className="text-xs font-bold uppercase tracking-widest text-[#430E6C]/75 mb-1">
+                Location & Directions
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#430E6C] tracking-tight">
+                Find Us in Koramangala
+              </h2>
+            </div>
+            <p className="text-xs sm:text-sm md:text-base text-[#430E6C]/85 font-medium max-w-md leading-relaxed">
+              Located at 44, 5th Main Rd, 1st Block Koramangala - easily accessible from HSR Layout, Ejipura, and Indiranagar.
+            </p>
+          </div>
+
+          <div className="overflow-hidden rounded-2xl sm:rounded-3xl border-2 sm:border-4 border-white shadow-xl relative w-full h-[280px] sm:h-[380px] md:h-[480px]">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.6671873537975!2d77.63180407454595!3d12.929099315809765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15899ada3411%3A0xe35948f570efc217!2sBambiBoo%20Preschool%20and%20Daycare!5e0!3m2!1sen!2sin!4v1786015120180!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              className="w-full h-full"
+              title="BambiBoo Preschool and Daycare Google Map Directions"
+            />
+          </div>
+        </div>
+      </section>
+    </PageShell>
+  );
+}
