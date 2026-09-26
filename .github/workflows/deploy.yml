@@ -50,10 +50,10 @@ jobs:
             .output \
             "${{ secrets.HOSTINGER_USER }}@${{ secrets.HOSTINGER_HOST }}:~/bambiboo-app/"
 
-      - name: Verify deployment
+      - name: Verify deployment and restart process
         run: |
           ssh \
             -i ~/.ssh/bambiboo_key \
             -p "${{ secrets.HOSTINGER_PORT }}" \
             "${{ secrets.HOSTINGER_USER }}@${{ secrets.HOSTINGER_HOST }}" \
-            "ls -lah ~/bambiboo-app/.output/server/index.mjs"
+            "ls -lah ~/bambiboo-app/.output/server/index.mjs && mkdir -p ~/bambiboo-app/tmp && touch ~/bambiboo-app/tmp/restart.txt && (pm2 restart all || pkill -f node || true)"
