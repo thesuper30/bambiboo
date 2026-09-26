@@ -194,21 +194,10 @@ function Home() {
               </Link>
             </div>
 
-            <div className="mt-10 flex items-center gap-6 sm:gap-10 border-t border-[#4C167F]/15 pt-6 max-w-xl">
-              <div>
-                <div className="text-2xl sm:text-3xl font-black text-primary">1:12</div>
-                <div className="text-[10px] sm:text-xs uppercase tracking-widest text-muted-foreground font-extrabold mt-0.5">Teacher Ratio</div>
-              </div>
-              <div className="h-9 w-px bg-[#4C167F]/15" />
-              <div>
-                <div className="text-2xl sm:text-3xl font-black text-primary">7+</div>
-                <div className="text-[10px] sm:text-xs uppercase tracking-widest text-muted-foreground font-extrabold mt-0.5">Age Programmes</div>
-              </div>
-              <div className="h-9 w-px bg-[#4C167F]/15" />
-              <div>
-                <div className="text-2xl sm:text-3xl font-black text-primary">CCTV</div>
-                <div className="text-[10px] sm:text-xs uppercase tracking-widest text-muted-foreground font-extrabold mt-0.5">As Required</div>
-              </div>
+            <div className="mt-10 border-t border-[#4C167F]/15 pt-6 max-w-xl">
+              <p className="text-2xl sm:text-3xl font-black text-primary tracking-tight">
+                Play. Wonder. Belong.
+              </p>
             </div>
           </div>
           <div className="lg:col-span-6 relative">

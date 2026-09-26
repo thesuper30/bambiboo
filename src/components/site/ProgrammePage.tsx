@@ -167,11 +167,7 @@ export function ProgrammePage({ info, showHeroForm }: { info: ProgrammeInfo; sho
                 <Stat icon={<Clock className="h-4 w-4" />} label="Hours" value={info.hours} />
                 <Stat icon={<Users className="h-4 w-4" />} label="Ratio" value={info.ratio} />
               </div>
-              <div className="grid grid-cols-3 gap-4 pt-4 border-t border-[#430E6C]/15 max-w-lg">
-                <HeroHighlight value="1:12" label="Teacher Ratio" />
-                <HeroHighlight value="8+" label="Age Programmes" />
-                <HeroHighlight value="CCTV" label="As Required" />
-              </div>
+              {/* Removed 3-item stats bar */}
             </div>
             <div className="lg:col-span-5 relative">
               <AdmissionForm />

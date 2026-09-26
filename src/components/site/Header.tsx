@@ -38,7 +38,6 @@ const nav: NavGroup[] = [
     to: "/world/gallery",
     children: [
       { label: "Gallery & Events", to: "/world/gallery" },
-      { label: "Virtual Tour", to: "https://www.jumbokids.com/jumbokid/index.html" },
     ],
   },
   {
